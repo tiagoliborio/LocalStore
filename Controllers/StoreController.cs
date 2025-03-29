@@ -20,7 +20,7 @@ namespace LocalStore.Controllers
         public async Task<IActionResult> Index()
         {
             var username = User.Identity.Name ?? Environment.UserDomainName + "\\" + Environment.UserName;
-
+            ViewBag.username = username;
             var stores = await _context.Stores.ToListAsync();
             return View(stores); // This will render the Index view
         }
