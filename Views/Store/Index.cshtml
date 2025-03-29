@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LocalStore.Models.Store>
+
+@{
+    ViewData["Title"] = "Stores";
+}
+
+<h1>Stores</h1>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Store</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.StoreName)</th>
+            <th>@Html.DisplayNameFor(model => model.StoreDescription)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var store in Model)
+        {
+            <tr>
+                <td>@store.StoreName</td>
+                <td>@store.StoreDescription</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = store.IdStore })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = store.IdStore })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
